@@ -1,0 +1,25 @@
+spring:
+  application:
+    name: alice-singularity-agent
+  main:
+    web-application-type: none
+    banner-mode: "off"
+
+app:
+  cli:
+    enabled: true
+  timezone: ${APP_TIMEZONE:Europe/Moscow}
+  gigachat:
+    auth-key: ${GIGACHAT_AUTH_KEY:}
+    scope: ${GIGACHAT_SCOPE:GIGACHAT_API_PERS}
+    model: ${GIGACHAT_MODEL:GigaChat-2-Max}
+  singularity:
+    api-token: ${SINGULARITY_API_TOKEN:}
+    base-url: ${SINGULARITY_API_BASE_URL:https://api.singularity-app.com}
+
+logging:
+  level:
+    root: INFO
+    dev.alice.singularity: ${LOG_LEVEL:INFO}
+  console:
+    target: System.err
