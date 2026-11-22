@@ -79,3 +79,25 @@ mvn -q spring-boot:run -Dspring-boot.run.arguments='создай задачу к
 ## Этап 2 — навык «Сингуларити Бот»
 
 ТЗ: [`TZ-stage2.md`](TZ-stage2.md).
+
+Webhook URL для Яндекс.Диалогов:
+
+```text
+https://lazy-tech.ru/singularity/alice/webhook
+```
+
+Health: `https://lazy-tech.ru/singularity/health`  
+На VPS рядом с dolya (`/opt/alice-singularity-agent`), Traefik PathPrefix `/singularity`.
+
+```bash
+mvn -DskipTests package
+cp target/alice-singularity-agent-0.1.0.jar deploy/app.jar
+rsync -az --exclude target --exclude .git --exclude .env \
+  -e "ssh -i ~/.ssh/timeweb -o IdentitiesOnly=yes" \
+  ./ root@77.95.206.121:/opt/alice-singularity-agent/
+ssh -i ~/.ssh/timeweb -o IdentitiesOnly=yes root@77.95.206.121
+cd /opt/alice-singularity-agent && sh deploy/up.sh
+```
+
+В `.env` на сервере: ключи GigaChat/Singularity и `ALICE_ALLOWED_USER_IDS` (`session.user.user_id`).  
+`ALICE_GREETING` — в кавычках.
