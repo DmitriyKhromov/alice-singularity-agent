@@ -76,6 +76,6 @@ mvn -q spring-boot:run -Dspring-boot.run.arguments='создай задачу к
 
 См. `REPORT.md` в корне репозитория.
 
-## Этап 2 (не в MVP)
+## Этап 2 — навык «Сингуларити Бот»
 
-Приватный навык Яндекс Алисы «Задачи» на Timeweb → тот же агент.
+ТЗ: [`TZ-stage2.md`](TZ-stage2.md).

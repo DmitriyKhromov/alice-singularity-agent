@@ -11,7 +11,24 @@ public class AliceSingularityApplication {
 
     public static void main(String[] args) {
         loadDotEnv();
+        if (hasCliPhrase(args)) {
+            System.setProperty("app.cli.enabled", "true");
+            System.setProperty("APP_CLI_ENABLED", "true");
+            System.setProperty("spring.main.web-application-type", "none");
+            System.setProperty("SPRING_MAIN_WEB_APPLICATION_TYPE", "none");
+        } else {
+            System.setProperty("app.cli.enabled", System.getProperty("app.cli.enabled", "false"));
+        }
         SpringApplication.run(AliceSingularityApplication.class, args);
+    }
+
+    private static boolean hasCliPhrase(String[] args) {
+        for (String arg : args) {
+            if (arg != null && !arg.isBlank() && !arg.startsWith("-")) {
+                return true;
+            }
+        }
+        return false;
     }
 
     private static void loadDotEnv() {

@@ -35,7 +35,8 @@ class SingularityClientHttpTest {
         AppProperties properties = new AppProperties(
                 "Europe/Moscow",
                 new AppProperties.GigaChat("key", "GIGACHAT_API_PERS", "GigaChat-2-Max"),
-                new AppProperties.Singularity("test-token", wm.getHttpBaseUrl())
+                new AppProperties.Singularity("test-token", wm.getHttpBaseUrl()),
+                new AppProperties.Alice("", "Поставьте Диме новую задачу")
         );
         client = new SingularityClient(properties, new ObjectMapper());
     }

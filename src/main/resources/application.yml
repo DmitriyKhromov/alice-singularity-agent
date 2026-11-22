@@ -2,12 +2,19 @@ spring:
   application:
     name: alice-singularity-agent
   main:
-    web-application-type: none
+    web-application-type: ${SPRING_MAIN_WEB_APPLICATION_TYPE:servlet}
     banner-mode: "off"
+
+server:
+  port: ${SERVER_PORT:8080}
+  servlet:
+    context-path: ${SERVER_SERVLET_CONTEXT_PATH:/singularity}
+  forward-headers-strategy: framework
+  shutdown: graceful
 
 app:
   cli:
-    enabled: true
+    enabled: ${APP_CLI_ENABLED:false}
   timezone: ${APP_TIMEZONE:Europe/Moscow}
   gigachat:
     auth-key: ${GIGACHAT_AUTH_KEY:}
@@ -16,6 +23,9 @@ app:
   singularity:
     api-token: ${SINGULARITY_API_TOKEN:}
     base-url: ${SINGULARITY_API_BASE_URL:https://api.singularity-app.com}
+  alice:
+    allowed-user-ids: ${ALICE_ALLOWED_USER_IDS:}
+    greeting: ${ALICE_GREETING:Поставьте Диме новую задачу}
 
 logging:
   level:

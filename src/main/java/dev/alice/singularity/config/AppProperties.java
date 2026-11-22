@@ -6,11 +6,15 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 public record AppProperties(
         String timezone,
         GigaChat gigachat,
-        Singularity singularity
+        Singularity singularity,
+        Alice alice
 ) {
     public record GigaChat(String authKey, String scope, String model) {
     }
 
     public record Singularity(String apiToken, String baseUrl) {
+    }
+
+    public record Alice(String allowedUserIds, String greeting) {
     }
 }

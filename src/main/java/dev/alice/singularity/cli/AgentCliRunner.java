@@ -15,7 +15,7 @@ import java.util.List;
 
 @Component
 @Order(0)
-@ConditionalOnProperty(name = "app.cli.enabled", havingValue = "true", matchIfMissing = true)
+@ConditionalOnProperty(name = "app.cli.enabled", havingValue = "true")
 public class AgentCliRunner implements ApplicationRunner {
 
     private static final Logger log = LoggerFactory.getLogger(AgentCliRunner.class);

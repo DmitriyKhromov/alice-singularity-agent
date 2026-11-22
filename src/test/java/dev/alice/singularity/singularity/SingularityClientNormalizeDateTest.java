@@ -22,7 +22,8 @@ class SingularityClientNormalizeDateTest {
         AppProperties properties = new AppProperties(
                 "Europe/Moscow",
                 new AppProperties.GigaChat("key", "GIGACHAT_API_PERS", "GigaChat-2-Max"),
-                new AppProperties.Singularity("token", "https://api.singularity-app.com")
+                new AppProperties.Singularity("token", "https://api.singularity-app.com"),
+                new AppProperties.Alice("", "Поставьте Диме новую задачу")
         );
         client = new SingularityClient(properties, new ObjectMapper());
     }

@@ -356,7 +356,7 @@ alice-singularity-agent/
 7. README + `.env` + добить `.gitignore`.
 8. Чеклист §15.
 
-Этап 2 (после сдачи ДЗ): webhook Алисы на Timeweb, навык «Задачи».
+Этап 2 (после сдачи ДЗ): см. **`TZ-stage2.md`** — webhook Алисы на Timeweb рядом с dolya.
 
 ---
 
